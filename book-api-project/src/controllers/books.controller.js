@@ -41,7 +41,7 @@ const updateBook = async (req, res) => {
 const deleteBook=async(req,res)=>{
     const book=await Books.findById(req.params.id);
     if (book){
-        await book.remove();
+        await book.deleteOne();
         console.log(`book removed: ${book}`);
         res.json({message:"book removed"});
     }else{
